@@ -1,0 +1,624 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local DevConsoleMaster = Instance.new("ScreenGui")
+local DevConsoleWindow = Instance.new("Frame")
+local ResizeButton = Instance.new("ImageButton")
+local DevConsoleUI = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local TopBar = Instance.new("ImageButton")
+local WindowTitle = Instance.new("TextLabel")
+local CloseButton = Instance.new("ImageButton")
+local MinButton = Instance.new("ImageButton")
+local LiveStatsModule = Instance.new("Frame")
+local LogWarningCount = Instance.new("TextButton")
+local LogErrorCount = Instance.new("TextButton")
+local MemoryUsage = Instance.new("TextButton")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local WarningMemoryPad = Instance.new("Frame")
+local LogErrorIcon = Instance.new("ImageButton")
+local MemoryUsage_MB = Instance.new("TextButton")
+local MemoryPingPad = Instance.new("Frame")
+local ErrorWarningPad = Instance.new("Frame")
+local LogWarningIcon = Instance.new("ImageButton")
+local AvgPing_ms = Instance.new("TextButton")
+local AvgPing = Instance.new("TextButton")
+local MainView = Instance.new("Frame")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local UtilAndTab = Instance.new("Frame")
+local Tabs = Instance.new("Frame")
+local DataStores = Instance.new("TextButton")
+local Log = Instance.new("TextButton")
+local BlueHighlight = Instance.new("Frame")
+local Network = Instance.new("TextButton")
+local UIListLayout_4 = Instance.new("UIListLayout")
+local ActionBindings = Instance.new("TextButton")
+local ServerJobs = Instance.new("TextButton")
+local Memory = Instance.new("TextButton")
+local Scripts = Instance.new("TextButton")
+local ServerStats = Instance.new("TextButton")
+local MicroProfiler = Instance.new("TextButton")
+local UtilBar = Instance.new("Frame")
+local SearchBar = Instance.new("Frame")
+local SearchImage = Instance.new("ImageLabel")
+local InputField = Instance.new("Frame")
+local TextBox = Instance.new("TextBox")
+local MainRow = Instance.new("Frame")
+local UIListLayout_5 = Instance.new("UIListLayout")
+local ClientServerButton = Instance.new("Frame")
+local ServerButton = Instance.new("TextButton")
+local ClientButton = Instance.new("TextButton")
+local FilterCheckBoxes = Instance.new("Frame")
+local Warning = Instance.new("ImageButton")
+local Icon = Instance.new("ImageLabel")
+local Text = Instance.new("TextLabel")
+local CheckBoxLayout = Instance.new("UIListLayout")
+local Error = Instance.new("ImageButton")
+local Icon_2 = Instance.new("ImageLabel")
+local Text_2 = Instance.new("TextLabel")
+local Information = Instance.new("ImageButton")
+local Icon_3 = Instance.new("ImageLabel")
+local Text_3 = Instance.new("TextLabel")
+local Output = Instance.new("ImageButton")
+local Icon_4 = Instance.new("ImageLabel")
+local Text_4 = Instance.new("TextLabel")
+local Buttons = Instance.new("Frame")
+local Layout = Instance.new("UIGridLayout")
+local ClientLog = Instance.new("ScrollingFrame")
+local UIListLayout_6 = Instance.new("UIListLayout")
+local WindowingPadding = Instance.new("Frame")
+
+--Properties:
+
+DevConsoleMaster.Name = "DevConsoleMaster"
+DevConsoleMaster.DisplayOrder = 2147483647
+
+DevConsoleWindow.Name = "DevConsoleWindow"
+DevConsoleWindow.Parent = DevConsoleMaster
+DevConsoleWindow.Active = true
+DevConsoleWindow.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+DevConsoleWindow.BackgroundTransparency = 0.360
+DevConsoleWindow.BorderColor3 = Color3.fromRGB(30, 30, 30)
+DevConsoleWindow.BorderSizePixel = 16
+DevConsoleWindow.Position = UDim2.new(0, -6, 0, 12)
+DevConsoleWindow.Size = UDim2.new(0, 992, 0, 610)
+
+ResizeButton.Name = "ResizeButton"
+ResizeButton.Parent = DevConsoleWindow
+ResizeButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ResizeButton.Position = UDim2.new(1, 0, 1, 0)
+ResizeButton.Size = UDim2.new(0, 16, 0, 16)
+ResizeButton.Modal = true
+
+DevConsoleUI.Name = "DevConsoleUI"
+DevConsoleUI.Parent = DevConsoleWindow
+DevConsoleUI.BackgroundTransparency = 1.000
+DevConsoleUI.Size = UDim2.new(0, 992, 0, 610)
+
+UIListLayout.Parent = DevConsoleUI
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 8)
+
+TopBar.Name = "TopBar"
+TopBar.Parent = DevConsoleUI
+TopBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TopBar.BackgroundTransparency = 0.500
+TopBar.LayoutOrder = 1
+TopBar.Size = UDim2.new(1, 0, 0, 30)
+TopBar.AutoButtonColor = false
+
+WindowTitle.Name = "WindowTitle"
+WindowTitle.Parent = TopBar
+WindowTitle.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+WindowTitle.BackgroundTransparency = 1.000
+WindowTitle.Position = UDim2.new(0, 4, 0, 0)
+WindowTitle.Size = UDim2.new(0, 116, 0, 30)
+WindowTitle.Font = Enum.Font.SourceSans
+WindowTitle.Text = "Developer Console"
+WindowTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+WindowTitle.TextSize = 18.000
+WindowTitle.TextXAlignment = Enum.TextXAlignment.Left
+
+CloseButton.Name = "CloseButton"
+CloseButton.Parent = TopBar
+CloseButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+CloseButton.BackgroundTransparency = 1.000
+CloseButton.BorderColor3 = Color3.fromRGB(0, 255, 0)
+CloseButton.Position = UDim2.new(1, -22, 0, 7)
+CloseButton.Size = UDim2.new(0, 15, 0, 15)
+CloseButton.Image = "rbxasset://textures/DevConsole/Close.png"
+
+MinButton.Name = "MinButton"
+MinButton.Parent = TopBar
+MinButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MinButton.BackgroundTransparency = 1.000
+MinButton.BorderColor3 = Color3.fromRGB(255, 0, 0)
+MinButton.Position = UDim2.new(1, -52, 0, 7)
+MinButton.Size = UDim2.new(0, 15, 0, 15)
+MinButton.Image = "rbxasset://textures/DevConsole/Minimize.png"
+
+LiveStatsModule.Name = "LiveStatsModule"
+LiveStatsModule.Parent = TopBar
+LiveStatsModule.BackgroundTransparency = 1.000
+LiveStatsModule.Position = UDim2.new(0, 124, 0, 0)
+LiveStatsModule.Size = UDim2.new(0, 760, 0, 30)
+
+LogWarningCount.Name = "LogWarningCount"
+LogWarningCount.Parent = LiveStatsModule
+LogWarningCount.BackgroundTransparency = 9.000
+LogWarningCount.LayoutOrder = 5
+LogWarningCount.Size = UDim2.new(0, 7, 1, 0)
+LogWarningCount.Font = Enum.Font.SourceSans
+LogWarningCount.Text = "0"
+LogWarningCount.TextColor3 = Color3.fromRGB(255, 255, 255)
+LogWarningCount.TextSize = 18.000
+LogWarningCount.TextXAlignment = Enum.TextXAlignment.Left
+
+LogErrorCount.Name = "LogErrorCount"
+LogErrorCount.Parent = LiveStatsModule
+LogErrorCount.BackgroundTransparency = 1.000
+LogErrorCount.LayoutOrder = 2
+LogErrorCount.Size = UDim2.new(0, 7, 1, 0)
+LogErrorCount.Font = Enum.Font.SourceSans
+LogErrorCount.Text = "0"
+LogErrorCount.TextColor3 = Color3.fromRGB(255, 255, 255)
+LogErrorCount.TextSize = 18.000
+LogErrorCount.TextXAlignment = Enum.TextXAlignment.Left
+
+MemoryUsage.Name = "MemoryUsage"
+MemoryUsage.Parent = LiveStatsModule
+MemoryUsage.BackgroundTransparency = 1.000
+MemoryUsage.LayoutOrder = 7
+MemoryUsage.Size = UDim2.new(0, 135, 1, 0)
+MemoryUsage.Font = Enum.Font.SourceSans
+MemoryUsage.Text = "Client Memory Usage:"
+MemoryUsage.TextColor3 = Color3.fromRGB(255, 218, 68)
+MemoryUsage.TextSize = 18.000
+MemoryUsage.TextXAlignment = Enum.TextXAlignment.Right
+
+UIListLayout_2.Parent = LiveStatsModule
+UIListLayout_2.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout_2.Padding = UDim.new(0, 6)
+
+WarningMemoryPad.Name = "WarningMemoryPad"
+WarningMemoryPad.Parent = LiveStatsModule
+WarningMemoryPad.BackgroundTransparency = 1.000
+WarningMemoryPad.LayoutOrder = 6
+
+LogErrorIcon.Name = "LogErrorIcon"
+LogErrorIcon.Parent = LiveStatsModule
+LogErrorIcon.BackgroundTransparency = 1.000
+LogErrorIcon.LayoutOrder = 1
+LogErrorIcon.Size = UDim2.new(0, 18, 0, 18)
+LogErrorIcon.Image = "rbxasset://textures/DevConsole/Error.png"
+
+MemoryUsage_MB.Name = "MemoryUsage_MB"
+MemoryUsage_MB.Parent = LiveStatsModule
+MemoryUsage_MB.BackgroundTransparency = 1.000
+MemoryUsage_MB.LayoutOrder = 8
+MemoryUsage_MB.Size = UDim2.new(0, 51, 1, 0)
+MemoryUsage_MB.Font = Enum.Font.SourceSans
+MemoryUsage_MB.Text = "1265 MB"
+MemoryUsage_MB.TextColor3 = Color3.fromRGB(255, 255, 255)
+MemoryUsage_MB.TextSize = 18.000
+MemoryUsage_MB.TextXAlignment = Enum.TextXAlignment.Left
+
+MemoryPingPad.Name = "MemoryPingPad"
+MemoryPingPad.Parent = LiveStatsModule
+MemoryPingPad.BackgroundTransparency = 1.000
+MemoryPingPad.LayoutOrder = 9
+
+ErrorWarningPad.Name = "ErrorWarningPad"
+ErrorWarningPad.Parent = LiveStatsModule
+ErrorWarningPad.BackgroundTransparency = 1.000
+ErrorWarningPad.LayoutOrder = 3
+
+LogWarningIcon.Name = "LogWarningIcon"
+LogWarningIcon.Parent = LiveStatsModule
+LogWarningIcon.BackgroundTransparency = 1.000
+LogWarningIcon.LayoutOrder = 4
+LogWarningIcon.Size = UDim2.new(0, 18, 0, 18)
+LogWarningIcon.Image = "rbxasset://textures/DevConsole/Warning.png"
+
+AvgPing_ms.Name = "AvgPing_ms"
+AvgPing_ms.Parent = LiveStatsModule
+AvgPing_ms.BackgroundTransparency = 1.000
+AvgPing_ms.LayoutOrder = 11
+AvgPing_ms.Size = UDim2.new(0, 35, 1, 0)
+AvgPing_ms.Font = Enum.Font.SourceSans
+AvgPing_ms.Text = "69 ms"
+AvgPing_ms.TextColor3 = Color3.fromRGB(255, 255, 255)
+AvgPing_ms.TextSize = 18.000
+AvgPing_ms.TextXAlignment = Enum.TextXAlignment.Left
+
+AvgPing.Name = "AvgPing"
+AvgPing.Parent = LiveStatsModule
+AvgPing.BackgroundTransparency = 1.000
+AvgPing.LayoutOrder = 10
+AvgPing.Size = UDim2.new(0, 63, 1, 0)
+AvgPing.Font = Enum.Font.SourceSans
+AvgPing.Text = "Avg. Ping:"
+AvgPing.TextColor3 = Color3.fromRGB(255, 218, 68)
+AvgPing.TextSize = 18.000
+AvgPing.TextXAlignment = Enum.TextXAlignment.Right
+
+MainView.Name = "MainView"
+MainView.Parent = DevConsoleUI
+MainView.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainView.BackgroundTransparency = 1.000
+MainView.LayoutOrder = 3
+MainView.Size = UDim2.new(0, 992, 0, 564)
+
+UIListLayout_3.Parent = MainView
+UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_3.Padding = UDim.new(0, 8)
+
+UtilAndTab.Name = "UtilAndTab"
+UtilAndTab.Parent = MainView
+UtilAndTab.BackgroundTransparency = 1.000
+UtilAndTab.LayoutOrder = 1
+UtilAndTab.Size = UDim2.new(1, 0, 0, 78)
+
+Tabs.Name = "Tabs"
+Tabs.Parent = UtilAndTab
+Tabs.BackgroundTransparency = 1.000
+Tabs.Position = UDim2.new(0, 3, 0, 0)
+Tabs.Size = UDim2.new(1, 0, 0, 40)
+
+DataStores.Name = "DataStores"
+DataStores.Parent = Tabs
+DataStores.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+DataStores.BorderSizePixel = 0
+DataStores.LayoutOrder = 5
+DataStores.Size = UDim2.new(0, 117, 0, 40)
+DataStores.AutoButtonColor = false
+DataStores.Font = Enum.Font.SourceSansBold
+DataStores.Text = "DataStores"
+DataStores.TextColor3 = Color3.fromRGB(255, 255, 255)
+DataStores.TextSize = 20.000
+DataStores.TextTransparency = 0.500
+
+Log.Name = "Log"
+Log.Parent = Tabs
+Log.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+Log.BorderSizePixel = 0
+Log.LayoutOrder = 1
+Log.Size = UDim2.new(0, 61, 0, 40)
+Log.AutoButtonColor = false
+Log.Font = Enum.Font.SourceSansBold
+Log.Text = "Log"
+Log.TextColor3 = Color3.fromRGB(255, 255, 255)
+Log.TextSize = 20.000
+
+BlueHighlight.Name = "BlueHighlight"
+BlueHighlight.Parent = Log
+BlueHighlight.BackgroundColor3 = Color3.fromRGB(0, 162, 255)
+BlueHighlight.BorderSizePixel = 0
+BlueHighlight.Position = UDim2.new(0, 0, 1, 0)
+BlueHighlight.Size = UDim2.new(1, 0, 0, -6)
+
+Network.Name = "Network"
+Network.Parent = Tabs
+Network.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+Network.BorderSizePixel = 0
+Network.LayoutOrder = 3
+Network.Size = UDim2.new(0, 99, 0, 40)
+Network.AutoButtonColor = false
+Network.Font = Enum.Font.SourceSansBold
+Network.Text = "Network"
+Network.TextColor3 = Color3.fromRGB(255, 255, 255)
+Network.TextSize = 20.000
+Network.TextTransparency = 0.500
+
+UIListLayout_4.Parent = Tabs
+UIListLayout_4.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_4.SortOrder = Enum.SortOrder.LayoutOrder
+
+ActionBindings.Name = "ActionBindings"
+ActionBindings.Parent = Tabs
+ActionBindings.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+ActionBindings.BorderSizePixel = 0
+ActionBindings.LayoutOrder = 7
+ActionBindings.Size = UDim2.new(0, 150, 0, 40)
+ActionBindings.AutoButtonColor = false
+ActionBindings.Font = Enum.Font.SourceSansBold
+ActionBindings.Text = "ActionBindings"
+ActionBindings.TextColor3 = Color3.fromRGB(255, 255, 255)
+ActionBindings.TextSize = 20.000
+ActionBindings.TextTransparency = 0.500
+
+ServerJobs.Name = "ServerJobs"
+ServerJobs.Parent = Tabs
+ServerJobs.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+ServerJobs.BorderSizePixel = 0
+ServerJobs.LayoutOrder = 8
+ServerJobs.Size = UDim2.new(0, 119, 0, 40)
+ServerJobs.AutoButtonColor = false
+ServerJobs.Font = Enum.Font.SourceSansBold
+ServerJobs.Text = "ServerJobs"
+ServerJobs.TextColor3 = Color3.fromRGB(255, 255, 255)
+ServerJobs.TextSize = 20.000
+ServerJobs.TextTransparency = 0.500
+
+Memory.Name = "Memory"
+Memory.Parent = Tabs
+Memory.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+Memory.BorderSizePixel = 0
+Memory.LayoutOrder = 2
+Memory.Size = UDim2.new(0, 96, 0, 40)
+Memory.AutoButtonColor = false
+Memory.Font = Enum.Font.SourceSansBold
+Memory.Text = "Memory"
+Memory.TextColor3 = Color3.fromRGB(255, 255, 255)
+Memory.TextSize = 20.000
+Memory.TextTransparency = 0.500
+
+Scripts.Name = "Scripts"
+Scripts.Parent = Tabs
+Scripts.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+Scripts.BorderSizePixel = 0
+Scripts.LayoutOrder = 4
+Scripts.Size = UDim2.new(0, 86, 0, 40)
+Scripts.AutoButtonColor = false
+Scripts.Font = Enum.Font.SourceSansBold
+Scripts.Text = "Scripts"
+Scripts.TextColor3 = Color3.fromRGB(255, 255, 255)
+Scripts.TextSize = 20.000
+Scripts.TextTransparency = 0.500
+
+ServerStats.Name = "ServerStats"
+ServerStats.Parent = Tabs
+ServerStats.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+ServerStats.BorderSizePixel = 0
+ServerStats.LayoutOrder = 6
+ServerStats.Size = UDim2.new(0, 122, 0, 40)
+ServerStats.AutoButtonColor = false
+ServerStats.Font = Enum.Font.SourceSansBold
+ServerStats.Text = "ServerStats"
+ServerStats.TextColor3 = Color3.fromRGB(255, 255, 255)
+ServerStats.TextSize = 20.000
+ServerStats.TextTransparency = 0.500
+
+MicroProfiler.Name = "MicroProfiler"
+MicroProfiler.Parent = Tabs
+MicroProfiler.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+MicroProfiler.BorderSizePixel = 0
+MicroProfiler.LayoutOrder = 9
+MicroProfiler.Size = UDim2.new(0, 134, 0, 40)
+MicroProfiler.AutoButtonColor = false
+MicroProfiler.Font = Enum.Font.SourceSansBold
+MicroProfiler.Text = "MicroProfiler"
+MicroProfiler.TextColor3 = Color3.fromRGB(255, 255, 255)
+MicroProfiler.TextSize = 20.000
+MicroProfiler.TextTransparency = 0.500
+
+UtilBar.Name = "UtilBar"
+UtilBar.Parent = UtilAndTab
+UtilBar.BackgroundTransparency = 1.000
+UtilBar.Position = UDim2.new(0, 4, 0, 48)
+UtilBar.Size = UDim2.new(1, -8, 0, 30)
+
+SearchBar.Name = "SearchBar"
+SearchBar.Parent = UtilBar
+SearchBar.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+SearchBar.BorderColor3 = Color3.fromRGB(184, 184, 184)
+SearchBar.Position = UDim2.new(1, -200, 0, 0)
+SearchBar.Size = UDim2.new(0, 200, 0, 30)
+
+SearchImage.Name = "SearchImage"
+SearchImage.Parent = SearchBar
+SearchImage.BackgroundTransparency = 1.000
+SearchImage.Position = UDim2.new(0, 10, 0.5, -9)
+SearchImage.Size = UDim2.new(0, 18, 0, 18)
+SearchImage.Image = "rbxasset://textures/DevConsole/Search.png"
+
+InputField.Name = "InputField"
+InputField.Parent = SearchBar
+InputField.BackgroundTransparency = 1.000
+InputField.ClipsDescendants = true
+InputField.Position = UDim2.new(0, 38, 0, 0)
+InputField.Size = UDim2.new(1, -60, 1, 0)
+
+TextBox.Parent = InputField
+TextBox.BackgroundTransparency = 1.000
+TextBox.Size = UDim2.new(1, 0, 1, 0)
+TextBox.ClearTextOnFocus = false
+TextBox.Font = Enum.Font.Code
+TextBox.PlaceholderText = "Search"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 15.000
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+
+MainRow.Name = "MainRow"
+MainRow.Parent = UtilBar
+MainRow.BackgroundTransparency = 1.000
+MainRow.Size = UDim2.new(1, 0, 1, 0)
+
+UIListLayout_5.Parent = MainRow
+UIListLayout_5.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout_5.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_5.Padding = UDim.new(0, 6)
+
+ClientServerButton.Name = "ClientServerButton"
+ClientServerButton.Parent = MainRow
+ClientServerButton.BackgroundTransparency = 1.000
+ClientServerButton.Size = UDim2.new(0, 200, 0, 30)
+
+ServerButton.Name = "ServerButton"
+ServerButton.Parent = ClientServerButton
+ServerButton.BackgroundColor3 = Color3.fromRGB(78, 84, 96)
+ServerButton.LayoutOrder = 2
+ServerButton.Position = UDim2.new(0, 100, 0, 0)
+ServerButton.Size = UDim2.new(0, 100, 0, 30)
+ServerButton.AutoButtonColor = false
+ServerButton.Font = Enum.Font.SourceSans
+ServerButton.Text = "Server"
+ServerButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ServerButton.TextSize = 18.000
+
+ClientButton.Name = "ClientButton"
+ClientButton.Parent = ClientServerButton
+ClientButton.BackgroundColor3 = Color3.fromRGB(50, 181, 255)
+ClientButton.LayoutOrder = 1
+ClientButton.Size = UDim2.new(0, 100, 0, 30)
+ClientButton.AutoButtonColor = false
+ClientButton.Font = Enum.Font.SourceSans
+ClientButton.Text = "Client"
+ClientButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ClientButton.TextSize = 18.000
+
+FilterCheckBoxes.Name = "FilterCheckBoxes"
+FilterCheckBoxes.Parent = MainRow
+FilterCheckBoxes.BackgroundTransparency = 1.000
+FilterCheckBoxes.Position = UDim2.new(0, 208, 0, 0)
+FilterCheckBoxes.Size = UDim2.new(0, 574, 0, 30)
+
+Warning.Name = "Warning"
+Warning.Parent = FilterCheckBoxes
+Warning.BackgroundTransparency = 1.000
+Warning.LayoutOrder = 3
+Warning.Size = UDim2.new(0, 81, 0, 30)
+
+Icon.Name = "Icon"
+Icon.Parent = Warning
+Icon.BackgroundColor3 = Color3.fromRGB(50, 181, 255)
+Icon.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Icon.BorderSizePixel = 0
+Icon.Position = UDim2.new(0, 0, 0.5, -8)
+Icon.Size = UDim2.new(0, 16, 0, 16)
+Icon.Image = "rbxasset://textures/ui/LuaChat/icons/ic-check.png"
+
+Text.Name = "Text"
+Text.Parent = Warning
+Text.BackgroundTransparency = 1.000
+Text.Position = UDim2.new(0, 22, 0, 0)
+Text.Size = UDim2.new(1, -30, 1, 0)
+Text.Font = Enum.Font.SourceSans
+Text.Text = "Warning"
+Text.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text.TextSize = 18.000
+Text.TextXAlignment = Enum.TextXAlignment.Left
+
+CheckBoxLayout.Name = "CheckBoxLayout"
+CheckBoxLayout.Parent = FilterCheckBoxes
+CheckBoxLayout.FillDirection = Enum.FillDirection.Horizontal
+CheckBoxLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+Error.Name = "Error"
+Error.Parent = FilterCheckBoxes
+Error.BackgroundTransparency = 1.000
+Error.LayoutOrder = 4
+Error.Size = UDim2.new(0, 59, 0, 30)
+
+Icon_2.Name = "Icon"
+Icon_2.Parent = Error
+Icon_2.BackgroundColor3 = Color3.fromRGB(50, 181, 255)
+Icon_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Icon_2.BorderSizePixel = 0
+Icon_2.Position = UDim2.new(0, 0, 0.5, -8)
+Icon_2.Size = UDim2.new(0, 16, 0, 16)
+Icon_2.Image = "rbxasset://textures/ui/LuaChat/icons/ic-check.png"
+
+Text_2.Name = "Text"
+Text_2.Parent = Error
+Text_2.BackgroundTransparency = 1.000
+Text_2.Position = UDim2.new(0, 22, 0, 0)
+Text_2.Size = UDim2.new(1, -30, 1, 0)
+Text_2.Font = Enum.Font.SourceSans
+Text_2.Text = "Error"
+Text_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_2.TextSize = 18.000
+Text_2.TextXAlignment = Enum.TextXAlignment.Left
+
+Information.Name = "Information"
+Information.Parent = FilterCheckBoxes
+Information.BackgroundTransparency = 1.000
+Information.LayoutOrder = 2
+Information.Size = UDim2.new(0, 102, 0, 30)
+
+Icon_3.Name = "Icon"
+Icon_3.Parent = Information
+Icon_3.BackgroundColor3 = Color3.fromRGB(50, 181, 255)
+Icon_3.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Icon_3.BorderSizePixel = 0
+Icon_3.Position = UDim2.new(0, 0, 0.5, -8)
+Icon_3.Size = UDim2.new(0, 16, 0, 16)
+Icon_3.Image = "rbxasset://textures/ui/LuaChat/icons/ic-check.png"
+
+Text_3.Name = "Text"
+Text_3.Parent = Information
+Text_3.BackgroundTransparency = 1.000
+Text_3.Position = UDim2.new(0, 22, 0, 0)
+Text_3.Size = UDim2.new(1, -30, 1, 0)
+Text_3.Font = Enum.Font.SourceSans
+Text_3.Text = "Information"
+Text_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_3.TextSize = 18.000
+Text_3.TextXAlignment = Enum.TextXAlignment.Left
+
+Output.Name = "Output"
+Output.Parent = FilterCheckBoxes
+Output.BackgroundTransparency = 1.000
+Output.LayoutOrder = 1
+Output.Size = UDim2.new(0, 72, 0, 30)
+
+Icon_4.Name = "Icon"
+Icon_4.Parent = Output
+Icon_4.BackgroundColor3 = Color3.fromRGB(50, 181, 255)
+Icon_4.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Icon_4.BorderSizePixel = 0
+Icon_4.Position = UDim2.new(0, 0, 0.5, -8)
+Icon_4.Size = UDim2.new(0, 16, 0, 16)
+Icon_4.Image = "rbxasset://textures/ui/LuaChat/icons/ic-check.png"
+
+Text_4.Name = "Text"
+Text_4.Parent = Output
+Text_4.BackgroundTransparency = 1.000
+Text_4.Position = UDim2.new(0, 22, 0, 0)
+Text_4.Size = UDim2.new(1, -30, 1, 0)
+Text_4.Font = Enum.Font.SourceSans
+Text_4.Text = "Output"
+Text_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+Text_4.TextSize = 18.000
+Text_4.TextXAlignment = Enum.TextXAlignment.Left
+
+Buttons.Name = "Buttons"
+Buttons.Parent = UtilBar
+Buttons.BackgroundTransparency = 1.000
+Buttons.Position = UDim2.new(1, -708, 0, 0)
+Buttons.Size = UDim2.new(0, 500, 0, 30)
+
+Layout.Name = "Layout"
+Layout.Parent = Buttons
+Layout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+Layout.SortOrder = Enum.SortOrder.LayoutOrder
+Layout.CellPadding = UDim2.new(0, 8, 0, 0)
+Layout.CellSize = UDim2.new(0, 100, 0, 30)
+Layout.FillDirectionMaxCells = 5
+
+ClientLog.Name = "ClientLog"
+ClientLog.Parent = MainView
+ClientLog.BackgroundTransparency = 1.000
+ClientLog.LayoutOrder = 2
+ClientLog.Size = UDim2.new(1, 0, 1, -78)
+ClientLog.CanvasSize = UDim2.new(1, 0, 0, 0)
+ClientLog.ScrollBarThickness = 6
+ClientLog.VerticalScrollBarInset = Enum.ScrollBarInset.ScrollBar
+
+UIListLayout_6.Parent = ClientLog
+UIListLayout_6.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_6.Padding = UDim.new(0, 2)
+
+WindowingPadding.Name = "WindowingPadding"
+WindowingPadding.Parent = ClientLog
+WindowingPadding.BackgroundTransparency = 1.000
+WindowingPadding.LayoutOrder = 1
+WindowingPadding.Size = UDim2.new(1, 0, 0, -1)
+
+return DevConsoleMaster
